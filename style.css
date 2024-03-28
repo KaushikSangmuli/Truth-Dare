@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    
+}
+body{
+     /* background-image: linear-gradient(to bottom right, #e4129e 10%, #4dceeb 70%) */
+}
+h1{
+    text-align: center;
+    margin-top: 52px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    width:50%;
+    margin-inline: auto;
+    padding: 8px 12px;
+    gap: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 4px rgb(103, 101, 101);
+    background-color: rgba(255, 255, 255, 0.1);
+    
+}
+h3{
+    text-align: center;
+}
+.typeOfGroup{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.group{
+    border: 2px solid rgb(24, 24, 24);
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+.group:active{
+    box-shadow: 1px 0 2px 1px rgb(129, 127, 127);
+}
+.mode{
+    background-color: rgb(163, 12, 186);
+    color: white;
+}
+
+.addUserStyle{
+    padding: 4px 8px;
+    margin-inline: auto;
+    background-color: black;
+    color: white;
+}
+
+
+#error{
+    color: red;
+    animation: errorShowing 0.5s ease 0s infinite alternate ;
+}
+@keyframes errorShowing {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.1);
+    }
+}
+.userBox{
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    gap:10px;
+    width: 100%;
+    
+}
+.user{
+    display: flex;
+    margin-inline: auto;
+    gap:10px;
+    width: 80%;
+    /* background-image: linear-gradient(to bottom right, #e4129e 10%, #d8f486 90%) */
+}
+.user2 input{
+    width: 100%;
+    height: 32px;
+    border-radius: 10px;
+    padding-inline: 20px;
+    /* background-image: linear-gradient(to bottom right, #e4129e 10%, #d8f486 90%) */
+}
+
+
+.user input{
+    width: 100%;
+    height: 32px;
+    border-radius: 10px;
+    padding-inline: 20px;
+}
+.user select{
+    width:40px;
+    text-align: center;
+}
+select::-webkit-scrollbar {
+    display: none;
+}
+
+.level{
+    border: 2px solid black;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+button{
+    border-radius: 8px;
+    text-align: center;
+    font-family: cursive;
+    padding: 4px 8px;
+    cursor: pointer;
+}
