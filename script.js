@@ -8,6 +8,9 @@ const error = document.querySelector("#error")
 const level = document.querySelectorAll(".level")
 const selectLevel = document.querySelector("#select-level")
 const letsGo = document.querySelector("button")
+const userInputPage = document.querySelector(".user-input-page")
+const pageOne = document.querySelector(".main")
+const subHeading = document.querySelector("#subHeading")
 
 
 let groupSelected = false;
@@ -61,7 +64,6 @@ select.forEach((e)=>{
         option1.innerText = i
          option2.innerText = i
 
-        
         select1.append(option1)
         select2.append(option2)
     } 
@@ -91,7 +93,10 @@ letsGo.addEventListener("click", ()=>{
         return
     })
     if (groupSelected && allFilled && levelSelected){
-       gamingSection.classList.remove("hidden")
+        pageOne.classList.add("hidden")
+        subHeading.classList.add("hidden")
+        gamingSection.classList.remove("hidden")
+
     } else{
         error.innerText = "fill the details"
     }
@@ -146,12 +151,15 @@ const dare = document.querySelector("#dare")
 const truthAndDare = document.querySelector(".option-selection")
 const performTag =  document.querySelector(".perform")
 const performanceText =  document.querySelector(".perform-class")
+const decision = document.querySelector(".yes-or-no")
 truth.addEventListener ( "click", ()=>{
     let i = Math.floor(Math.random()* 29)
     console.log( truthTask[i])
     setTimeout(() => {
         gameBox.classList.add("hidden")
         performTag.classList.remove("hidden")
+        truthAndDare.classList.add("hidden")
+        decision.classList.remove("hidden")
         performanceText.innerText = truthTask[i]
 
     }, 1000);
@@ -161,6 +169,8 @@ dare.addEventListener ( "click", ()=>{
     setTimeout(() => {
         gameBox.classList.add("hidden")
         performTag.classList.remove("hidden")
+        truthAndDare.classList.add("hidden")
+        decision.classList.remove("hidden")
         performanceText.innerText = dareTask[i]
     }, 1000);
 })
@@ -226,11 +236,24 @@ const dareTask = [ "Do your best impression of a celebrity and have everyone gue
 "Wear sunglasses indoors for the next three rounds.",
 "Try to do a handstand against the wall for 30 seconds.",
 "Do the chicken dance."]
-// for(let i=0 ;i<30; i++){
-//     truthTask.push(`Truth_Question_${i}`)
-//     dareTask.push(`Dare_Task_${i}`)
-    
-// }
+
+const decisionYes = document.querySelector("#yes")
+const decisionNo = document.querySelector("#no")
+const timer = document.querySelector(".timer");
+timer.innerText=60
 
 
+decisionYes.addEventListener( "click" , ()=>{
+    console.log("you opted for yes")
+    timer.classList.remove("hidden")
+    const stoppingClock = setInterval(() => {
+        timer.innerText--
+    }, 1000);
+    setTimeout(() => {
+        clearInterval(stoppingClock)
+    }, 60000);
+})
+decisionNo.addEventListener( "click" , ()=>{
+    console.log("you opted for NO")
+})
 
