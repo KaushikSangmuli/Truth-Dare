@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+/* font-family: "Kalam", cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+/* font-family: "Josefin Sans", sans-serif; */
 *{
     margin: 0;
     padding: 0;
@@ -10,25 +14,32 @@ body{
 }
 h1{
     text-align: center;
-    margin-top: 52px;
+    margin-top: 40px;
+}
+h4{
+    margin-top: 10px;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
 }
 .main{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
-    width:50%;
+    width:80%;
     margin-inline: auto;
     padding: 8px 12px;
     gap: 20px;
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 0 0 16px 4px rgb(103, 101, 101);
-    background-color: rgba(255, 255, 255, 0.1);
+    /* background-color: rgba(255, 255, 255, 0.1); */
     
 }
 h3{
+    padding-top: 20px;
     text-align: center;
+    font-family: "Josefin Sans", sans-serif;
 }
 .typeOfGroup{
     display: flex;
@@ -38,10 +49,10 @@ h3{
 
 .group{
     border: 2px solid rgb(24, 24, 24);
-    border-radius: 16px;
+    border-radius: 12px;
     font-size: 1rem;
     font-weight: 700;
-    padding: 8px 12px;
+    padding: 4px 8px;
     cursor: pointer;
 }
 .group:active{
@@ -67,6 +78,7 @@ h3{
 @keyframes errorShowing {
     0%{
         transform: scale(1);
+        
     }
     100%{
         transform: scale(1.1);
@@ -104,6 +116,7 @@ h3{
 }
 .user select{
     width:40px;
+    border-radius: 12px;
     text-align: center;
 }
 select::-webkit-scrollbar {
@@ -112,16 +125,100 @@ select::-webkit-scrollbar {
 
 .level{
     border: 2px solid black;
-    border-radius: 16px;
+    border-radius: 12px;
     font-size: 1rem;
     font-weight: 700;
-    padding: 8px 12px;
+    padding: 4px 8px;
     cursor: pointer;
 }
 button{
+    color: antiquewhite;
+    background-color: black;
     border-radius: 8px;
     text-align: center;
     font-family: cursive;
-    padding: 4px 8px;
+    padding: 6px 10px;
     cursor: pointer;
+}
+/* page 2 started here */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.game{
+    width: 90%;
+    border: 2px dotted green;
+    margin-top: 100px;
+    text-align: center;
+}
+#turn-anounce {
+    font-size: 1.4rem;
+    padding-top: 20px;
+    font-weight: 500;
+    color: rgb(7, 74, 241);
+}
+
+.game-page{
+    width: 100% ;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 68vh;
+    margin: auto ;
+}
+
+.game-page img {
+    max-height: 200px;
+    mix-blend-mode: screen;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.game-User{
+    font-size: 1rem;
+    font-family: poppins, sans-serif ;
+    border: 1px solid black;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background-color: rgb(166, 5, 252, 0.2);
+    color: black;
+    font-weight: 500;
+}
+.option-selection{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+.option-selection button{
+    font-size: 1.2rem;
+    padding: 4px 8px;
+}
+
+.perform{
+    margin-top: 20px;
+    width: 70%;
+    margin-inline: auto;
+    height: 160px;
+    margin-bottom: 40px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, #4f4c4e 10%, #b663bf 70%)
+}
+.perform-class{
+    padding-top: 40px;
+    color: rgb(253, 255, 255);
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-family: "Kalam", cursive;
+
+}
+.hidden {
+    display: none;
+}
+.opecity{
+    opacity: 0;
 }
