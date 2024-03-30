@@ -6,20 +6,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    
+    font-family: "Poppins", sans-serif;  
 }
-
 
 h1{
     text-align: center;
     margin-top: 40px;
 }
+
 h4{
     margin-top: 10px;
     text-align: center;
     font-family: "Josefin Sans", sans-serif;
 }
+
 .main{
     display: flex;
     flex-direction: column;
@@ -31,11 +31,7 @@ h4{
     gap: 20px;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 0 0 1px 2px rgb(103, 101, 101);
-    /* background-color: rgba(255, 255, 255, 0.1); */
-    
-    
-    
+    box-shadow: 0 0 1px 2px rgb(103, 101, 101);  
 }
 
 h3{
@@ -57,9 +53,12 @@ h3{
     padding: 4px 8px;
     cursor: pointer;
 }
+
 .group:active{
     box-shadow: 1px 0 2px 1px rgb(129, 127, 127);
+    transform: scale(1.1);
 }
+
 .mode{
     background-color: rgb(163, 12, 186);
     color: white;

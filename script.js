@@ -1,20 +1,13 @@
-const group = document.querySelectorAll(".group")
-const group3 = document.querySelector(".type-3")
-const user = document.querySelectorAll(".username")
-const user1 = document.querySelector("#username-1")
-const user2 = document.querySelector("#username-2")
-const userBox = document.querySelector(".userBox")
-const error = document.querySelector("#error")
-const level = document.querySelectorAll(".level")
-const selectLevel = document.querySelector("#select-level")
-const letsGo = document.querySelector("button")
-const userInputPage = document.querySelector(".user-input-page")
+// going to restructure code
 const pageOne = document.querySelector(".main")
 const subHeading = document.querySelector("#subHeading")
 
 
 let groupSelected = false;
 let levelSelected = false;
+
+const group = document.querySelectorAll(".group")  // type of group
+const error = document.querySelector("#error")
 
 group.forEach((e) => {
     e.addEventListener("click" , () => {
@@ -28,21 +21,13 @@ group.forEach((e) => {
         e.classList.toggle("mode")
     })
 })
-// let addUser= document.createElement("button")
-// group3.addEventListener("click", ()=>{
-//     console.log("buddies clicked!")
-//    addUser.innerText =" Add more + "
-//    addUser.classList.add("addUserStyle")
-//    console.log("buddies clicked!")
-//    selectLevel.insertBefore(addUser, selectLevel[0])
-// })
 
-// addUser.addEventListener( "click" ,() => {
-//         console.log("adduser clicked !")
-//         let newUser = user.cloneNode(true)
-//         userBox.append(newUser)
-        
-// })
+
+const user = document.querySelectorAll(".username")  //input class
+const user1 = document.querySelector("#username-1")  //input 1
+const user2 = document.querySelector("#username-2")  //inut 2
+const userBox = document.querySelector(".userBox")   //input box containe name and age
+
 user.forEach((e) => {
     e.addEventListener( "click" , () =>{
         if(!groupSelected){
@@ -50,9 +35,11 @@ user.forEach((e) => {
         } 
     })
 })
+
 let select= document.querySelectorAll("select")
 let select1= document.querySelector("#age-1")
 let select2= document.querySelector("#age-2")
+
 select.forEach((e)=>{
     for (let i = 13; i<=49; i++){
         let option1 = document.createElement("option")
@@ -69,6 +56,8 @@ select.forEach((e)=>{
     } 
 })
 
+const level = document.querySelectorAll(".level")   //level button
+const selectLevel = document.querySelector("#select-level")  // level heading
 
 level.forEach((e)=>{
     e.addEventListener("click" , () => {
@@ -83,6 +72,8 @@ level.forEach((e)=>{
     }
     )
 })
+
+const letsGo = document.querySelector("button")
 
 letsGo.addEventListener("click", ()=>{
     let allFilled = true;
