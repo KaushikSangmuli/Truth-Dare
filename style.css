@@ -208,7 +208,6 @@ select::-webkit-scrollbar {
     width: 70%;
     margin-inline: auto;
     height: 160px;
-    
     border: 2px solid black;
     border-radius: 10px;
     background-image: linear-gradient(to bottom right, #4f4c4e 10%, #b663bf 70%)
@@ -244,6 +243,23 @@ select::-webkit-scrollbar {
     padding: 2px 8px;
     box-shadow: 0 0 10px 2px black;
     border-radius: 4px;
+}
+.result-box{
+    margin-top: 20px;
+    width: 70%;
+    margin-inline: auto;
+    height: 160px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom right, #4f4c4e 10%, #b663bf 70%)
+}
+
+#result-paragraph{
+    padding-top: 40px;
+    color: rgb(253, 255, 255);
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-family: "Kalam", cursive;
 }
 .hidden {
     display: none;

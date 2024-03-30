@@ -108,17 +108,21 @@ const spinnerImg = document.querySelector(".spinner-img")
 const gameUser = document.querySelectorAll(".game-User")
 const gameUser1= document.querySelector("#game-user1")
 const gameUser2= document.querySelector("#game-user2")
-
+const anounce = document.querySelector("#turn-anounce")
 spinnerImg.addEventListener ( "click", ()=>{
     spinnerImg.style.animation = "spin 5s ease 0s  forwards ;";
     spinnerImg.style.transitionDuration = "5s"
     var randomDegree = Math.floor(Math.random() * 1440);
     console.log(randomDegree)
     spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
-    const anounce = document.querySelector("#turn-anounce")
+
+    setTimeout(() => {
+        randomDegree = 0;
+        spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
+        
+    }, 20000);
 
    
-
     if (0 <= randomDegree <= 180 || 361<= randomDegree <= 540 || 721<= randomDegree <= 900 || 1081<= randomDegree <=1260){
         setTimeout(() => {
             anounce.innerText = `its ${user1.value}'s turn ! select Truth or Dare`
@@ -156,17 +160,20 @@ truth.addEventListener ( "click", ()=>{
     let i = Math.floor(Math.random()* 29)
     console.log( truthTask[i])
     setTimeout(() => {
+        anounce.classList.add("hidden")
         gameBox.classList.add("hidden")
         performTag.classList.remove("hidden")
         truthAndDare.classList.add("hidden")
         decision.classList.remove("hidden")
         performanceText.innerText = truthTask[i]
 
+
     }, 1000);
 })
 dare.addEventListener ( "click", ()=>{
     let i = Math.floor(Math.random()* 29)
     setTimeout(() => {
+        anounce.classList.add("hidden")
         gameBox.classList.add("hidden")
         performTag.classList.remove("hidden")
         truthAndDare.classList.add("hidden")
@@ -251,9 +258,43 @@ decisionYes.addEventListener( "click" , ()=>{
     }, 1000);
     setTimeout(() => {
         clearInterval(stoppingClock)
-    }, 60000);
+        result.classList.remove("hidden")
+        performTag.classList.add("hidden")
+        decision.classList.add("hidden")
+
+    }, 6000);
 })
 decisionNo.addEventListener( "click" , ()=>{
     console.log("you opted for NO")
+})
+
+const result = document.querySelector(".result")
+const resultText = document.querySelector("#result-paragraph")
+const satisfied = document.querySelector("#satisfied")
+const notSatisfied = document.querySelector("#notSatisfied")
+let isClicked = false;
+satisfied.addEventListener("click", ()=>{
+    resultText.innerText = "Kudos ! You earned a point !! :) had fun? then Give it a another shot!"
+    setTimeout(() => {
+        result.classList.add("hidden")
+        gameBox.classList.remove("hidden")
+        timer.classList.add("hidden")
+        anounce.classList.remove("hidden")
+        anounce.innerText = "Spin Again ;)"
+        timer.innerText=60;
+    }, 10000);
+    isClicked = true;
+})
+notSatisfied.addEventListener("click",  ()=>{
+    resultText.innerText = "Aaa haa ! you loose the point here !! :( No worries Let's Start Again"
+    setTimeout(() => {
+        result.classList.add("hidden")
+        gameBox.classList.remove("hidden")
+        timer.classList.add("hidden")
+        anounce.classList.remove("hidden")
+        anounce.innerText = "Spin Again ;)"
+        timer.innerText=60;
+    }, 10000);
+    isClicked = true;
 })
 
