@@ -9,9 +9,8 @@
     font-family: "Poppins", sans-serif;
     
 }
-body{
-     /* background-image: linear-gradient(to bottom right, #e4129e 10%, #4dceeb 70%) */
-}
+
+
 h1{
     text-align: center;
     margin-top: 40px;
@@ -32,10 +31,13 @@ h4{
     gap: 20px;
     border: 1px solid black;
     border-radius: 10px;
-    box-shadow: 0 0 16px 4px rgb(103, 101, 101);
+    box-shadow: 0 0 1px 2px rgb(103, 101, 101);
     /* background-color: rgba(255, 255, 255, 0.1); */
     
+    
+    
 }
+
 h3{
     padding-top: 20px;
     text-align: center;
@@ -207,17 +209,17 @@ select::-webkit-scrollbar {
     margin-top: 20px;
     width: 70%;
     margin-inline: auto;
-    height: 160px;
     border: 2px solid black;
     border-radius: 10px;
     background-image: linear-gradient(to bottom right, #4f4c4e 10%, #b663bf 70%)
 }
 .perform-class{
-    padding-top: 40px;
+    padding: 20px 8px;
     color: rgb(253, 255, 255);
     font-size: 1.3rem;
     font-weight: 500;
     font-family: "Kalam", cursive;
+
 }
 .yes-or-no{
     display: flex;
@@ -248,19 +250,31 @@ select::-webkit-scrollbar {
     margin-top: 20px;
     width: 70%;
     margin-inline: auto;
-    height: 160px;
     border: 2px solid black;
     border-radius: 10px;
     background-image: linear-gradient(to bottom right, #4f4c4e 10%, #b663bf 70%)
 }
 
 #result-paragraph{
-    padding-top: 40px;
+    padding: 40px 8px ;
     color: rgb(253, 255, 255);
     font-size: 1.3rem;
     font-weight: 500;
     font-family: "Kalam", cursive;
 }
+.result-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 60px;
+}
+.result-tag{
+    padding: 4px 8px;
+    font-size: 1.3rem;
+    box-shadow: 1px 1px 2px 1px black;
+}
+
 .hidden {
     display: none;
 }

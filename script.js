@@ -109,39 +109,52 @@ const gameUser = document.querySelectorAll(".game-User")
 const gameUser1= document.querySelector("#game-user1")
 const gameUser2= document.querySelector("#game-user2")
 const anounce = document.querySelector("#turn-anounce")
+
+
 spinnerImg.addEventListener ( "click", ()=>{
     spinnerImg.style.animation = "spin 5s ease 0s  forwards ;";
-    spinnerImg.style.transitionDuration = "5s"
-    var randomDegree = Math.floor(Math.random() * 1440);
+    spinnerImg.style.transitionDuration = "10s"
+    var randomDegree = Math.floor(Math.random() * 360) + 4000;
     console.log(randomDegree)
     spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
 
-    setTimeout(() => {
+    const invalidDegree = setTimeout(() => {
         randomDegree = 0;
         spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
         
     }, 20000);
 
    
-    if (0 <= randomDegree <= 180 || 361<= randomDegree <= 540 || 721<= randomDegree <= 900 || 1081<= randomDegree <=1260){
+    if ((randomDegree >= 4350 && randomDegree <=4360 ) || (randomDegree >= 4000 && randomDegree <= 4010) ){
+         setTimeout(() => {
+            anounce.innerText = `Oh noo ! Its fair to spin the bottle again`
+            randomDegree = 0;
+            spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
+            }, 70000);
+        clearTimeout(invalidDegree)
+            
+    }  else if (randomDegree >=4011 && randomDegree <= 4169) {
+        setTimeout(() => {
+            anounce.innerText = `its ${user2.value}'s turn ! select Truth or Dare`
+            truthAndDare.classList.remove("hidden")
+            }, 10000);
+    } else if ( randomDegree >= 4170 && randomDegree <= 4190) {
+        setTimeout(() => {
+            anounce.innerText = `Oh noo ! Its fair to spin the bottle again`    
+            randomDegree = 0;
+            spinnerImg.style.transform = `rotate(${randomDegree}deg)`;     
+            }, 70000);
+        clearTimeout(invalidDegree)
+    } else {
         setTimeout(() => {
             anounce.innerText = `its ${user1.value}'s turn ! select Truth or Dare`
             truthAndDare.classList.remove("hidden")
-            }, 5000);
-            
-    } else{
-        setTimeout(() => {
-            anounce.innerText = `its ${user2.value};s turn ! select Truth or Dare`
-            truthAndDare.classList.remove("hidden")
-        }, 5000);
+        }, 10000);
     }
 
 })
 
-// 0-180  181-360
-// 361-540 451-720
-// 721-900 901-1080
-// 1081-1260 1261-1440
+
 
 
 user.forEach((e , index)=>{
@@ -156,6 +169,8 @@ const truthAndDare = document.querySelector(".option-selection")
 const performTag =  document.querySelector(".perform")
 const performanceText =  document.querySelector(".perform-class")
 const decision = document.querySelector(".yes-or-no")
+
+
 truth.addEventListener ( "click", ()=>{
     let i = Math.floor(Math.random()* 29)
     console.log( truthTask[i])
@@ -166,10 +181,10 @@ truth.addEventListener ( "click", ()=>{
         truthAndDare.classList.add("hidden")
         decision.classList.remove("hidden")
         performanceText.innerText = truthTask[i]
-
-
     }, 1000);
 })
+
+
 dare.addEventListener ( "click", ()=>{
     let i = Math.floor(Math.random()* 29)
     setTimeout(() => {
@@ -264,6 +279,8 @@ decisionYes.addEventListener( "click" , ()=>{
 
     }, 6000);
 })
+
+
 decisionNo.addEventListener( "click" , ()=>{
     console.log("you opted for NO")
 })
