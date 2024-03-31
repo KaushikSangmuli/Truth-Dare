@@ -165,13 +165,14 @@ spinnerImg.addEventListener ("click" , () => {
                     spinnerImg.disabled= false;
                     spinnerImg.style.transition = "transform 1s ease";
                     spinnerImg.style.transform = `rotate(0deg)`; 
+                    clearTimeout(clearSpinDefault)
                 }, 4000);
             }
 
            
         }, 8000);
 
-        setTimeout(() => {
+       const clearSpinDefault= setTimeout(() => {
             
             isSpinnerSpinning=false;
             spinnerImg.disabled= false;
@@ -212,7 +213,7 @@ truth.addEventListener ( "click", ()=>{
         truthAndDare.classList.add("hidden")
         decision.classList.remove("hidden")
         performanceText.innerText = truthTask[i]
-    }, 1000);
+    }, 500);
 
 
 })
@@ -227,7 +228,7 @@ dare.addEventListener ( "click", ()=>{
         truthAndDare.classList.add("hidden")
         decision.classList.remove("hidden")
         performanceText.innerText = dareTask[i]
-    }, 1000);
+    }, 500);
 })
 
 const truthTask= ["What is the most embarrassing thing that has happened to you in public?",
@@ -314,7 +315,7 @@ decisionYes.addEventListener( "click" , ()=>{
         } else if (isuser2Activated){
             resultText.innerText = `${localUser1}, are you satisfied by the performance of ${localUser2}`
         }
-    }, 6000);
+    }, 60000);
 })
 
 
@@ -334,7 +335,7 @@ decisionNo.addEventListener( "click" , ()=>{
         } else if ( isuser2Activated) {
             resultText.innerText = `Shame Shame!! ${localUser1} have some guts. Spin Again`
         }
-    }, 6000);
+    }, 60000);
     
 })
 
@@ -388,7 +389,7 @@ spinAgainLooser.addEventListener("click",  ()=>{
         anounce.classList.remove("hidden")
         anounce.innerText = "Spin Again ;)"
         timer.innerText=60;
-    }, 1000);
+    }, 8000);
 
 }
 
