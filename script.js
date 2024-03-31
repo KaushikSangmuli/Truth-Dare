@@ -145,14 +145,14 @@ spinnerImg.addEventListener ("click" , () => {
         spinnerImg.style.transition = "transform 6s ease-out";
         spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
         console.log(randomDegree)
-
+    
         setTimeout(() => {
-            if ( randomDegree > 4070 && randomDegree < 4210){
+            if ( randomDegree > 4060 && randomDegree < 4220){
                 anounce.innerText = `its ${localUser2}'s turn ! select Truth or Dare`
                 truthAndDare.classList.remove("hidden")
                 isuser2Activated = true
                 console.log(localUser2)
-            } else if (  randomDegree > 4250 && randomDegree < 4030 ){
+            } else if (  randomDegree > 4240 || randomDegree < 4040 ){
                 anounce.innerText = `its ${localUser1}'s turn ! select Truth or Dare`
                 truthAndDare.classList.remove("hidden")
                 isUser1Activated =true
@@ -176,7 +176,7 @@ spinnerImg.addEventListener ("click" , () => {
             
             isSpinnerSpinning=false;
             spinnerImg.disabled= false;
-            anounce.innerText = `show some spirit and spin the bottle`
+            anounce.innerText = `Chalo firse Ghumao`
             spinnerImg.style.transition = "transform 1s ease";
             spinnerImg.style.transform = `rotate(0deg)`; 
         }, 30000);
@@ -200,6 +200,7 @@ const dare = document.querySelector("#dare")
 const truthAndDare = document.querySelector(".option-selection")
 const performTag =  document.querySelector(".perform")
 const performanceText =  document.querySelector(".perform-class")
+const performer = document.querySelector("#perform-user")
 const decision = document.querySelector(".yes-or-no")
 
 
@@ -212,7 +213,13 @@ truth.addEventListener ( "click", ()=>{
         performTag.classList.remove("hidden")
         truthAndDare.classList.add("hidden")
         decision.classList.remove("hidden")
+        if(isUser1Activated){
+            performer.innerText = `${localUser1}, ${localUser2} want to ask`
+        } else if(isuser2Activated){
+            performer.innerText = `${localUser2}, ${localUser1} want to ask`
+        }
         performanceText.innerText = truthTask[i]
+
     }, 500);
 
 
@@ -227,6 +234,11 @@ dare.addEventListener ( "click", ()=>{
         performTag.classList.remove("hidden")
         truthAndDare.classList.add("hidden")
         decision.classList.remove("hidden")
+        if(isUser1Activated){
+            performer.innerText = `${localUser1}, ${localUser2} dare you `
+        } else if(isuser2Activated){
+            performer.innerText = `${localUser2}, ${localUser1} dare you`
+        }
         performanceText.innerText = dareTask[i]
     }, 500);
 })
@@ -311,9 +323,9 @@ decisionYes.addEventListener( "click" , ()=>{
         performTag.classList.add("hidden")
         decision.classList.add("hidden")
         if( isUser1Activated){
-            resultText.innerText = `${localUser2}, are you satisfied by the performance of ${localUser1}`
+            resultText.innerText = `${localUser2}, what you think on the performance of ${localUser1}`
         } else if (isuser2Activated){
-            resultText.innerText = `${localUser1}, are you satisfied by the performance of ${localUser2}`
+            resultText.innerText = `${localUser1}, what you think on the performance of ${localUser2}`
         }
     }, 60000);
 })
@@ -331,11 +343,11 @@ decisionNo.addEventListener( "click" , ()=>{
         spinAgainLooser.classList.remove("hidden")
 
         if ( isUser1Activated){
-            resultText.innerText = `Shame Shame!! ${localUser1} have some guts. Spin Again`
+            resultText.innerText = `Shame Shame!! ${localUser1} Dar Gaye aap toh. Chalo maaf kiya firse Ghumao`
         } else if ( isuser2Activated) {
-            resultText.innerText = `Shame Shame!! ${localUser1} have some guts. Spin Again`
+            resultText.innerText = `Shame Shame!! ${localUser2} Dar Gaye aap toh. Chalo maaf kiya firse Ghumao`
         }
-    }, 60000);
+    }, 6000);
     
 })
 
@@ -350,9 +362,9 @@ let isClicked = false;
 satisfied.addEventListener("click", ()=>{
     
     if ( isUser1Activated){
-        resultText.innerText = `Kudos ! ${localUser1} earned a point !! :) had fun? then Give it a another shot!`
+        resultText.innerText = `Kudos ! ${localUser1} Wah ji... Dil jeet liya aapne to. Chalo firse Khelte Hain.. `
     } else if ( isuser2Activated) {
-        resultText.innerText = `Kudos ! ${localUser2} earned a point !! :) had fun? then Give it a another shot!`
+        resultText.innerText = `Kudos ! ${localUser2} Wah ji... Dil jeet liya aapne to. Chalo firse Khelte Hain.. `
     }
     setTimeout(() => {
         result.classList.add("hidden")
@@ -366,9 +378,9 @@ satisfied.addEventListener("click", ()=>{
 })
 notSatisfied.addEventListener("click",  ()=>{
     if ( isUser1Activated){
-        resultText.innerText = `Aaa haa ! ${localUser1} loose the point here !! :( No worries Let's Start Again`
+        resultText.innerText = `Aaa haa ! ${localUser1} loose the point here :( ${localUser2} give a punishment to ${localUser1}`
     } else if ( isuser2Activated) {
-        resultText.innerText = `Aaa haa ! ${localUser2} loose the point here !! :( No worries Let's Start Again`
+        resultText.innerText = `Aaa haa ! ${localUser2} loose the point here :( ${localUser1} give a punishment to ${localUser2}`
     }
     setTimeout(() => {
         result.classList.add("hidden")

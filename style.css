@@ -249,15 +249,24 @@ body{
     margin-inline: auto;
     border: 2px solid black;
     border-radius: 10px;
-    background-image: linear-gradient(to bottom right, #4f4c4e 10%, #b663bf 70%)
+    background-image: linear-gradient(to bottom right, #4f4c4e 10%, #b663bf 70%);
+    position: relative;
+}
+#perform-user{
+    color: rgb(253, 255, 255);
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    top: 4px;
+    left: 8px;
 }
 .perform-class{
-    padding: 20px 8px;
+    padding: 48px 8px;
     color: rgb(253, 255, 255);
     font-size: 1.5rem;
     font-weight: 500;
     font-family: "Roboto", sans-serif;
-
 }
 .yes-or-no{
     display: flex;
@@ -288,25 +297,26 @@ body{
 
 .timer {
     position: absolute;
-    top: 10px;
+    top: 16px;
     right: 40px;
-    font-size: 2rem;
-    background-color: rgb(11, 237, 233);
-    padding: 2px 8px;
-    box-shadow: 0 0 4px 2px rgb(241, 4, 31);
-    border-radius: 4px;
+    font-size: 3rem;
+    background-color: rgb(67, 117, 167);
+    padding: 4px 16px;
+    color: white;
+    box-shadow: 0 0 1px 2px rgb(241, 4, 31);
+    border-radius: 12px;
     transition: transform 1s ease;
-    animation: blinking 1s ease  infinite alternate;
+    animation: blinking 0.5s ease  infinite alternate;
 }
 
 @keyframes blinking {
     0%{
         transform: scale(1);
-       
+        
     }
     100%{
         transform: scale(1.2);
-      
+       
     }
     
 }
@@ -324,7 +334,7 @@ body{
     color: rgb(253, 255, 255);
     font-size: 1.3rem;
     font-weight: 500;
-    font-family: "Kalam", cursive;
+    font-family: "Slabo 13px", serif;
 }
 .result-button{
     display: flex;
