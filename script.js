@@ -178,7 +178,8 @@ spinnerImg.addEventListener ("click" , () => {
             spinnerImg.disabled= false;
             anounce.innerText = `Chalo firse Ghumao`
             spinnerImg.style.transition = "transform 1s ease";
-            spinnerImg.style.transform = `rotate(0deg)`; 
+            spinnerImg.style.transform = `rotate(0deg)`;
+            truthAndDare.classList.add("hidden") 
         }, 30000);
 
     }
