@@ -2,16 +2,27 @@
 /* font-family: "Kalam", cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 /* font-family: "Josefin Sans", sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap');
+/* font-family: "Slabo 13px", serif; */
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+/* font-family: "Shrikhand", serif; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* font-family: "Roboto", sans-serif; */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;  
+    font-family: "roboto", sans-serif;  
+    
 }
+
 
 h1{
     text-align: center;
     margin-top: 40px;
+    font-size: 3rem;
+    font-family: "Roboto", sans-serif;
+   
 }
 
 h4{
@@ -32,6 +43,7 @@ h4{
     border: 1px solid black;
     border-radius: 10px;
     box-shadow: 0 0 1px 2px rgb(103, 101, 101);  
+    background-color: rgba(0, 128, 128, 0.224);
 }
 
 h3{
@@ -52,6 +64,7 @@ h3{
     font-weight: 700;
     padding: 4px 8px;
     cursor: pointer;
+    transition: transform 0.3s ease ;
 }
 
 .group:active{
@@ -73,16 +86,19 @@ h3{
 
 
 #error{
-    color: red;
-    animation: errorShowing 0.5s ease 0s infinite alternate ;
+    background-color: red;
+    color: white;
+    padding: 2px 8px;
+    /* border: 1px solid black; */
+    border-radius: 8px;
+    animation: errorShowing 0.7s ease 0s infinite alternate ;
 }
 @keyframes errorShowing {
     0%{
         transform: scale(1);
-        
     }
     100%{
-        transform: scale(1.1);
+        transform: scale(1.2);
     }
 }
 .userBox{
@@ -132,62 +148,74 @@ select::-webkit-scrollbar {
     padding: 4px 8px;
     cursor: pointer;
 }
+
+.level:active {
+    box-shadow: 1px 0 2px 1px rgb(129, 127, 127);
+    transform: scale(1.1);
+}
 .main button{
     color: antiquewhite;
     background-color: black;
     border-radius: 8px;
     text-align: center;
-    font-family: cursive;
+    font-family: "Roboto", sans-serif;
     padding: 6px 10px;
     cursor: pointer;
 }
 /* page 2 started here */
 
 .game{
-    width: 90%;
+    width: 80%;
     margin-inline: auto;
-    border: 2px dotted green;
+    border: 1px solid black;
     margin-top: 20px;
     text-align: center;
-    position: relative;
+    box-shadow: 0 0 8px 4px black;
+    margin-bottom: 30px;
+    padding-bottom: 40px;
+}
+body{
+    background-color: rgba(0, 128, 128, 0.224);
 }
 #turn-anounce {
+    margin-inline: 10%;
     font-size: 1.4rem;
     padding-top: 20px;
     font-weight: 700;
     color: rgb(7, 74, 241);
+    font-family: "Slabo 13px", serif;
+    width: 80%;
 }
 
 .game-page{
-    width: 100% ;
+    margin-top: 20px;
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-around;
-    margin: auto ;
-    border: 2px solid yellow;
+    
+    
 }
 
 .game-page img {
-    max-height: 200px;
-    min-height: 40px;
+    height: 30vw;
     mix-blend-mode: screen;
     overflow: hidden;
+    margin: 30px 0px;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
 .game-User{
-    font-size: 1rem;
+    font-size: 2rem;
     font-family: poppins, sans-serif ;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     padding: 4px 8px;
     border-radius: 8px;
     background-color: rgb(166, 5, 252, 0.2);
     color: black;
     font-weight: 500;
+    
+    
 }
 .option-selection{
   display: flex;
@@ -195,13 +223,24 @@ select::-webkit-scrollbar {
   align-items: center;
   gap: 80px;
   margin-top: 40px;
-
+  margin-bottom: 40px;
 }
 .option-selection button{
-    font-size: 2rem;
-    border-radius: 16px;
-    padding: 4px 12px;
-    border: 3px solid ;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    padding: 4px 8px;
+    background-color: rgba(0, 128, 128, 0.224);
+    cursor:pointer ;
+  
+}
+.sachOrJhut{
+    transition: transform 0.3s ease;
+}
+
+.sachOrJhut:active{
+    background-color: rgb(195, 70, 191);
+    color: whitesmoke;
+    transform: scale(1.1);
 }
 
 .perform{
@@ -215,9 +254,9 @@ select::-webkit-scrollbar {
 .perform-class{
     padding: 20px 8px;
     color: rgb(253, 255, 255);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 500;
-    font-family: "Kalam", cursive;
+    font-family: "Roboto", sans-serif;
 
 }
 .yes-or-no{
@@ -226,24 +265,48 @@ select::-webkit-scrollbar {
     align-items: center;
     margin-top: 40px;
     gap: 60px;
-    
+    margin-bottom: 40px;
+    font-family: "Roboto", sans-serif
 }
 
 .yes-or-no button{
-    font-size: 2rem;
-    border-radius: 16px;
-    padding: 4px 12px;
-    background-color: hotpink;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    padding: 4px 8px;
+    cursor: pointer;
+    background-color:rgba(0, 128, 128, 0.224) ;
+    transition: transform 0.3s ease;
 }
+
+.yes-or-no button:active{
+   transform: scale(1.1);
+    background-color: #b663bf;
+    box-shadow: 0 0 3px 1px gray;
+}
+
 .timer {
     position: absolute;
     top: 10px;
     right: 40px;
-    font-size: 1.5rem;
-    background-color: hotpink;
+    font-size: 2rem;
+    background-color: rgb(11, 237, 233);
     padding: 2px 8px;
-    box-shadow: 0 0 10px 2px black;
+    box-shadow: 0 0 4px 2px rgb(241, 4, 31);
     border-radius: 4px;
+    transition: transform 1s ease;
+    animation: blinking 1s ease  infinite alternate;
+}
+
+@keyframes blinking {
+    0%{
+        transform: scale(1);
+       
+    }
+    100%{
+        transform: scale(1.2);
+      
+    }
+    
 }
 .result-box{
     margin-top: 20px;
@@ -267,13 +330,38 @@ select::-webkit-scrollbar {
     align-items: center;
     margin-top: 40px;
     gap: 60px;
-}
-.result-tag{
-    padding: 4px 8px;
-    font-size: 1.3rem;
-    box-shadow: 1px 1px 2px 1px black;
+    margin-bottom: 40px;
 }
 
+.result-tag{
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color:rgba(0, 128, 128, 0.224) ;
+   
+    transition: transform 0.3s ease; 
+}
+
+.result-tag:active{
+    transform: scale(1.1);
+    box-shadow: 1px 1px 2px 1px black;
+    background-color: #b663bf;
+}
+#spin-again-looser{
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color:rgba(0, 128, 128, 0.224) ;
+    box-shadow: 1px 1px 2px 1px black;
+    transition: transform 0.3s ease; 
+}
+#spin-again-looser:active{
+    transform: scale(1.1);
+    background-color: #b663bf;
+    box-shadow: 1px 1px 2px 1px black;
+}
 .hidden {
     display: none;
 }

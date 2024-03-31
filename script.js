@@ -19,6 +19,7 @@ group.forEach((e) => {
             error.innerText=""
         }
         e.classList.toggle("mode")
+        error.classList.add("hidden")
     })
 })
 
@@ -27,10 +28,35 @@ const user = document.querySelectorAll(".username")  //input class
 const user1 = document.querySelector("#username-1")  //input 1
 const user2 = document.querySelector("#username-2")  //inut 2
 const userBox = document.querySelector(".userBox")   //input box containe name and age
+let localUser1;
+let localUser2 ;
+user1.addEventListener("input" , ()=>{
+    const firstUserName = user1.value.trim();
+    if (firstUserName !== "") {
+        localStorage.setItem("firstUser", firstUserName);
+    }
+     localUser1 = localStorage.getItem("firstUser")
+})
+
+
+user2.addEventListener("input" , ()=>{
+    const secondUserName = user2.value.trim()
+    if (secondUserName !== ""){
+        localStorage.setItem("secondUser", secondUserName)
+    }
+     localUser2 = localStorage.getItem("secondUser")
+    console.log(localUser1)
+    console.log(localUser2)
+})
+
+window.addEventListener("beforeunload", function(event) {
+    localStorage.clear();
+});
 
 user.forEach((e) => {
     e.addEventListener( "click" , () =>{
         if(!groupSelected){
+            error.classList.remove("hidden")
             error.innerText = "select the group first"           
         } 
     })
@@ -66,9 +92,11 @@ level.forEach((e)=>{
         })
         levelSelected = true;
         e.classList.toggle("mode")
+        error.classList.add("hidden")
         if(error.innerText){
             error.innerText = ""
         }
+
     }
     )
 })
@@ -90,6 +118,7 @@ letsGo.addEventListener("click", ()=>{
 
     } else{
         error.innerText = "fill the details"
+        error.classList.remove("hidden")
     }
 })
 // page 2 started here
@@ -101,49 +130,60 @@ const gameUser1= document.querySelector("#game-user1")
 const gameUser2= document.querySelector("#game-user2")
 const anounce = document.querySelector("#turn-anounce")
 
+let isUser1Activated = false;
+let isuser2Activated = false;
 
-spinnerImg.addEventListener ( "click", ()=>{
-    spinnerImg.style.animation = "spin 5s ease 0s  forwards ;";
-    spinnerImg.style.transitionDuration = "10s"
-    var randomDegree = Math.floor(Math.random() * 360) + 4000;
-    console.log(randomDegree)
-    spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
+let isSpinnerSpinning = false;
 
-    const invalidDegree = setTimeout(() => {
-        randomDegree = 0;
-        spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
+spinnerImg.addEventListener ("click" , () => {
+        if (!isSpinnerSpinning){
+
+            isSpinnerSpinning = true
         
-    }, 20000);
+        spinnerImg.disabled=true
+        let randomDegree = Math.floor(Math.random() * 361) + 3960
+        spinnerImg.style.transition = "transform 6s ease-out";
+        spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
+        console.log(randomDegree)
 
-   
-    if ((randomDegree >= 4350 && randomDegree <=4360 ) || (randomDegree >= 4000 && randomDegree <= 4010) ){
-         setTimeout(() => {
-            anounce.innerText = `Oh noo ! Its fair to spin the bottle again`
-            randomDegree = 0;
-            spinnerImg.style.transform = `rotate(${randomDegree}deg)`; 
-            }, 70000);
-        clearTimeout(invalidDegree)
+        setTimeout(() => {
+            if ( randomDegree > 4070 && randomDegree < 4210){
+                anounce.innerText = `its ${localUser2}'s turn ! select Truth or Dare`
+                truthAndDare.classList.remove("hidden")
+                isuser2Activated = true
+                console.log(localUser2)
+            } else if (  randomDegree > 4250 && randomDegree < 4030 ){
+                anounce.innerText = `its ${localUser1}'s turn ! select Truth or Dare`
+                truthAndDare.classList.remove("hidden")
+                isUser1Activated =true
+                console.log(localUser1)
+            } else {
+                console.log("spin again")
+                anounce.innerText = `Oh noo ! Its fair to spin the bottle again`
+                setTimeout(() => {
+                    isSpinnerSpinning=false;
+                    spinnerImg.disabled= false;
+                    spinnerImg.style.transition = "transform 1s ease";
+                    spinnerImg.style.transform = `rotate(0deg)`; 
+                }, 4000);
+            }
+
+           
+        }, 8000);
+
+        setTimeout(() => {
             
-    }  else if (randomDegree >=4011 && randomDegree <= 4169) {
-        setTimeout(() => {
-            anounce.innerText = `its ${user2.value}'s turn ! select Truth or Dare`
-            truthAndDare.classList.remove("hidden")
-            }, 10000);
-    } else if ( randomDegree >= 4170 && randomDegree <= 4190) {
-        setTimeout(() => {
-            anounce.innerText = `Oh noo ! Its fair to spin the bottle again`    
-            randomDegree = 0;
-            spinnerImg.style.transform = `rotate(${randomDegree}deg)`;     
-            }, 70000);
-        clearTimeout(invalidDegree)
-    } else {
-        setTimeout(() => {
-            anounce.innerText = `its ${user1.value}'s turn ! select Truth or Dare`
-            truthAndDare.classList.remove("hidden")
-        }, 10000);
-    }
+            isSpinnerSpinning=false;
+            spinnerImg.disabled= false;
+            anounce.innerText = `show some spirit and spin the bottle`
+            spinnerImg.style.transition = "transform 1s ease";
+            spinnerImg.style.transform = `rotate(0deg)`; 
+        }, 30000);
 
+    }
 })
+
+
 
 
 
@@ -173,6 +213,8 @@ truth.addEventListener ( "click", ()=>{
         decision.classList.remove("hidden")
         performanceText.innerText = truthTask[i]
     }, 1000);
+
+
 })
 
 
@@ -267,22 +309,50 @@ decisionYes.addEventListener( "click" , ()=>{
         result.classList.remove("hidden")
         performTag.classList.add("hidden")
         decision.classList.add("hidden")
-
+        if( isUser1Activated){
+            resultText.innerText = `${localUser2}, are you satisfied by the performance of ${localUser1}`
+        } else if (isuser2Activated){
+            resultText.innerText = `${localUser1}, are you satisfied by the performance of ${localUser2}`
+        }
     }, 6000);
 })
 
 
 decisionNo.addEventListener( "click" , ()=>{
-    console.log("you opted for NO")
+
+    console.log("you opted for no")
+    setTimeout(() => {
+        result.classList.remove("hidden")
+        performTag.classList.add("hidden")
+        decision.classList.add("hidden")
+        satisfied.classList.add("hidden")
+        notSatisfied.classList.add("hidden")
+        spinAgainLooser.classList.remove("hidden")
+
+        if ( isUser1Activated){
+            resultText.innerText = `Shame Shame!! ${localUser1} have some guts. Spin Again`
+        } else if ( isuser2Activated) {
+            resultText.innerText = `Shame Shame!! ${localUser1} have some guts. Spin Again`
+        }
+    }, 6000);
+    
 })
 
-const result = document.querySelector(".result")
-const resultText = document.querySelector("#result-paragraph")
-const satisfied = document.querySelector("#satisfied")
-const notSatisfied = document.querySelector("#notSatisfied")
+const result = document.querySelector(".result")   //contain button and paragraph
+const resultText = document.querySelector("#result-paragraph")  //paragraph text
+const satisfied = document.querySelector("#satisfied")   //satisfy button
+const notSatisfied = document.querySelector("#notSatisfied") //not satisfy button 
+const spinAgainLooser = document.querySelector("#spin-again-looser") // spin again button
 let isClicked = false;
+
+
 satisfied.addEventListener("click", ()=>{
-    resultText.innerText = "Kudos ! You earned a point !! :) had fun? then Give it a another shot!"
+    
+    if ( isUser1Activated){
+        resultText.innerText = `Kudos ! ${localUser1} earned a point !! :) had fun? then Give it a another shot!`
+    } else if ( isuser2Activated) {
+        resultText.innerText = `Kudos ! ${localUser2} earned a point !! :) had fun? then Give it a another shot!`
+    }
     setTimeout(() => {
         result.classList.add("hidden")
         gameBox.classList.remove("hidden")
@@ -290,11 +360,15 @@ satisfied.addEventListener("click", ()=>{
         anounce.classList.remove("hidden")
         anounce.innerText = "Spin Again ;)"
         timer.innerText=60;
-    }, 10000);
+    }, 8000);
     isClicked = true;
 })
 notSatisfied.addEventListener("click",  ()=>{
-    resultText.innerText = "Aaa haa ! you loose the point here !! :( No worries Let's Start Again"
+    if ( isUser1Activated){
+        resultText.innerText = `Aaa haa ! ${localUser1} loose the point here !! :( No worries Let's Start Again`
+    } else if ( isuser2Activated) {
+        resultText.innerText = `Aaa haa ! ${localUser2} loose the point here !! :( No worries Let's Start Again`
+    }
     setTimeout(() => {
         result.classList.add("hidden")
         gameBox.classList.remove("hidden")
@@ -302,7 +376,23 @@ notSatisfied.addEventListener("click",  ()=>{
         anounce.classList.remove("hidden")
         anounce.innerText = "Spin Again ;)"
         timer.innerText=60;
-    }, 10000);
+    }, 8000);
     isClicked = true;
 })
 
+spinAgainLooser.addEventListener("click",  ()=>{
+    setTimeout(() => {
+        result.classList.add("hidden")
+        gameBox.classList.remove("hidden")
+        timer.classList.add("hidden")
+        anounce.classList.remove("hidden")
+        anounce.innerText = "Spin Again ;)"
+        timer.innerText=60;
+    }, 1000);
+
+}
+
+
+
+
+)
