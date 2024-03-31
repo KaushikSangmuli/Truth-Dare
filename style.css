@@ -266,7 +266,8 @@ body{
     margin-top: 40px;
     gap: 60px;
     margin-bottom: 40px;
-    font-family: "Roboto", sans-serif
+    font-family: "Roboto", sans-serif;
+    width: 80%;
 }
 
 .yes-or-no button{
@@ -331,12 +332,14 @@ body{
     margin-top: 40px;
     gap: 60px;
     margin-bottom: 40px;
+    width: 80%;
+    margin-inline: auto;
 }
 
 .result-tag{
     padding: 4px 8px;
     border-radius: 8px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     background-color:rgba(0, 128, 128, 0.224) ;
    
