@@ -170,7 +170,7 @@ spinnerImg.addEventListener ("click" , () => {
             }
 
            
-        }, 8000);
+        }, 7000);
 
        const clearSpinDefault= setTimeout(() => {
             
@@ -221,7 +221,7 @@ truth.addEventListener ( "click", ()=>{
         }
         performanceText.innerText = truthTask[i]
 
-    }, 500);
+    }, 200);
 
 
 })
@@ -241,7 +241,7 @@ dare.addEventListener ( "click", ()=>{
             performer.innerText = `${localUser2}, ${localUser1} dare you`
         }
         performanceText.innerText = dareTask[i]
-    }, 500);
+    }, 200);
 })
 
 const truthTask= ["What's the craziest thing you've done in the name of love?",
@@ -487,7 +487,7 @@ decisionNo.addEventListener( "click" , ()=>{
         } else if ( isuser2Activated) {
             resultText.innerText = `Shame Shame!! ${localUser2} Dar Gaye aap toh. Chalo maaf kiya firse Ghumao`
         }
-    }, 6000);
+    }, 2000);
     
 })
 
@@ -513,7 +513,7 @@ satisfied.addEventListener("click", ()=>{
         anounce.classList.remove("hidden")
         anounce.innerText = "Spin Again ;)"
         timer.innerText=60;
-    }, 8000);
+    }, 1000);
     isClicked = true;
 })
 notSatisfied.addEventListener("click",  ()=>{
@@ -529,7 +529,7 @@ notSatisfied.addEventListener("click",  ()=>{
         anounce.classList.remove("hidden")
         anounce.innerText = "Spin Again ;)"
         timer.innerText=60;
-    }, 8000);
+    }, 1000);
     isClicked = true;
 })
 
@@ -541,7 +541,7 @@ spinAgainLooser.addEventListener("click",  ()=>{
         anounce.classList.remove("hidden")
         anounce.innerText = "Spin Again ;)"
         timer.innerText=60;
-    }, 8000);
+    }, 2000);
 
 }
 
